@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <title>QuickBrand NG - From Unclear to Unforgettable</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF5E2E;
+            --accent: #A9FBD7;
+            --secondary: #F2D7B6;
+            --text: #1A1A1A;
+            --background: #F5F5F5;
+            --white: #FFFFFF;
+            --black: #000000;
+            --border: #E0E0E0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            color: var(--text);
+            background: var(--background);
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Neo-Brutalist Design Elements */
+        .brutal-box {
+            border: 4px solid var(--black);
+            box-shadow: 8px 8px 0px var(--black);
+        }
+
+        .brutal-box-white {
+            border: 4px solid var(--black);
+            box-shadow: 8px 8px 0px var(--primary);
+        }
+
+        .brutal-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: 4px solid var(--black);
+            box-shadow: 6px 6px 0px var(--black);
+            padding: 20px 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+            font-size: 16px;
+        }
+
+        .brutal-btn:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px var(--black);
+        }
+
+        .brutal-btn-secondary {
+            background: var(--accent);
+            color: var(--black);
+        }
+
+        /* Scarcity Banner */
+        .scarcity-banner {
+            background: var(--black);
+            color: var(--primary);
+            text-align: center;
+            padding: 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scarcity-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: slide 3s infinite;
+            opacity: 0.2;
+        }
+
+        @keyframes slide {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--primary);
+            color: var(--black);
+            padding: 100px 0 80px;
+            position: relative;
+            border-bottom: 8px solid var(--black);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            border: 4px solid var(--black);
+            transform: rotate(45deg);
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .trust-item {
+            background: var(--white);
+            padding: 20px;
+            text-align: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        /* Core Systems Section */
+        .core-systems {
+            padding: 100px 0;
+            background: var(--white);
+            border-bottom: 8px solid var(--black);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            font-weight: 600;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .system-card {
+            background: var(--accent);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .system-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border: 4px solid var(--black);
+            transform: rotate(45deg);
+        }
+
+        .system-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .system-title {
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .system-price {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .system-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .system-features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .system-features li::before {
+            content: "▶";
+            position: absolute;
+            left: 0;
+            color: var(--black);
+            font-size: 12px;
+        }
+
+        /* Development Systems */
+        .dev-systems {
+            padding: 100px 0;
+            background: var(--secondary);
+            border-bottom: 8px solid var(--black);
+        }
+
+        .dev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .dev-card {
+            background: var(--white);
+            padding: 40px;
+            position: relative;
+        }
+
+        .tier-badge {
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        /* Upgrade Packs */
+        .upgrade-packs {
+            padding: 100px 0;
+            background: var(--background);
+            border-bottom: 8px solid var(--black);
+        }
+
+        .upgrade-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .upgrade-card {
+            background: var(--white);
+            padding: 30px;
+            border-left: 8px solid var(--primary);
+            position: relative;
+        }
+
+        .upgrade-arrow {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+
+        /* Bonus Packs */
+        .bonus-packs {
+            padding: 100px 0;
+            background: var(--black);
+            color: var(--white);
+            border-bottom: 8px solid var(--primary);
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .bonus-card {
+            background: var(--primary);
+            color: var(--black);
+            padding: 30px;
+            position: relative;
+        }
+
+        .bonus-card::after {
+            content: '+';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--white);
+        }
+
+        /* Process Flow */
+        .process-flow {
+            padding: 100px 0;
+            background: var(--white);
+            border-bottom: 8px solid var(--black);
+        }
+
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .flow-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: var(--black);
+            border: 4px solid var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0 auto 20px;
+            box-shadow: 6px 6px 0px var(--black);
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 100px 0;
+            background: var(--accent);
+            border-bottom: 8px solid var(--black);
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 6rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            padding-left: 60px;
+        }
+
+        .testimonial-author {
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--black);
+            border-top: 4px solid var(--black);
+            padding-top: 20px;
+            margin-left: 60px;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            padding: 100px 0;
+            background: var(--primary);
+            color: var(--black);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="0" y="0" width="50" height="50" fill="none" stroke="black" stroke-width="2" opacity="0.1"/><rect x="50" y="50" width="50" height="50" fill="none" stroke="black" stroke-width="2" opacity="0.1"/></svg>') repeat;
+            z-index: 1;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .cta-card {
+            background: var(--white);
+            padding: 40px;
+            text-align: left;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 80px;
+            height: 80px;
+            border: 4px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            box-shadow: 6px 6px 0px var(--black);
+            transition: all 0.2s ease;
+            z-index: 1000;
+            font-weight: 900;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0px var(--black);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .systems-grid,
+            .dev-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+            }
+            
+            .brutal-btn {
+                text-align: center;
+            }
+            
+            .hero::before {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Animations */
+        .glitch {
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            10% { transform: translate(-2px, 2px); }
+            20% { transform: translate(2px, -2px); }
+            30% { transform: translate(-2px, -2px); }
+            40% { transform: translate(2px, 2px); }
+            50% { transform: translate(-2px, 2px); }
+            60% { transform: translate(2px, -2px); }
+            70% { transform: translate(-2px, -2px); }
+            80% { transform: translate(2px, 2px); }
+            90% { transform: translate(-2px, 2px); }
+        }
+    </style>
+</>
+<body>
+    <!-- Header with Logo -->
+    <header style="background: var(--white); border-bottom: 4px solid var(--black); padding: 20px 0;">
+    <div class="container">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="assets/QuickBrand-NG-Logo-Icon.svg" alt="QuickBrand NG Logo" style="width: 50px; height: 50px;" id="logo-img">
+                <div>
+                    <div style="font-size: 1.5rem; font-weight: 900; color: var(--black); line-height: 1;">QUICKBRAND NG</div>
+                    <div style="font-size: 0.9rem; font-weight: 600; color: var(--primary); text-transform: uppercase;">From Unclear to Unforgettable</div>
+                </div>
+            </div>
+            <a href="#whatsapp" class="brutal-btn" style="padding: 12px 20px; font-size: 0.9rem;">CHAT NOW</a>
+        </div>
+    </div>
+</header>
+
+    <!-- Scarcity Banner -->
+    <div class="scarcity-banner">
+        ⚡ ONLY 5 BRAND SYSTEMS LEFT THIS MONTH ⚡
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="font-display glitch">Build Your Brand System Once</h1>
+            <p class="hero-subtitle">Logo, colors, UI kit — then turn it into a launch-ready website that grows with you. Brand-first. System-based. Fast delivery.</p>
+            
+            <div class="hero-cta">
+                <a href="#core-systems" class="brutal-btn">START WITH LOGO KIT</a>
+                <a href="#whatsapp" class="brutal-btn brutal-btn-secondary">CHAT ON WHATSAPP</a>
+            </div>
+
+            <div class="trust-grid">
+                <div class="trust-item brutal-box-white">
+                    <div>⚡ 2-5 DAY DELIVERY</div>
+                </div>
+                <div class="trust-item brutal-box-white">
+                    <div>🎨 UNLIMITED REVISIONS</div>
+                </div>
+                <div class="trust-item brutal-box-white">
+                    <div>💳 PAYSTACK SECURE</div>
+                </div>
+                <div class="trust-item brutal-box-white">
+                    <div>📱 MOBILE-FIRST</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Systems -->
+    <section id="core-systems" class="core-systems">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title font-display">A. CORE SYSTEMS</h2>
+                <p class="section-subtitle">Foundational products that feed into all other offers</p>
+            </div>
+
+            <div class="systems-grid">
+                <div class="system-card brutal-box">
+                    <span class="system-icon">⚡</span>
+                    <h3 class="system-title font-display">Logo Kit</h3>
+                    <div class="system-price">₦15K - 25K</div>
+                    <ul class="system-features">
+                        <li>Main logo + alt logo + icon</li>
+                        <li>Favicon + B&W versions</li>
+                        <li>PNG/SVG files included</li>
+                        <li>Brand color codes</li>
+                        <li>48hr delivery</li>
+                    </ul>
+                    <p style="margin-bottom: 20px; font-weight: 600;">Perfect for: Solo brands, startups needing quick visual identity</p>
+                    <a href="#" class="brutal-btn" style="width: 100%; text-align: center;">ORDER LOGO KIT</a>
+                </div>
+
+                <div class="system-card brutal-box" style="background: var(--secondary);">
+                    <span class="system-icon">🎨</span>
+                    <h3 class="system-title font-display">Brand Kit</h3>
+                    <div class="system-price">₦35K - 55K</div>
+                    <ul class="system-features">
+                        <li>Everything in Logo Kit</li>
+                        <li>Typography system</li>
+                        <li>Imagery style guide</li>
+                        <li>3-5 brand patterns/shapes</li>
+                        <li>Social media profile graphics</li>
+                    </ul>
+                    <p style="margin-bottom: 20px; font-weight: 600;">Perfect for: Growing small businesses & personal brands</p>
+                    <a href="#" class="brutal-btn" style="width: 100%; text-align: center;">ORDER BRAND KIT</a>
+                </div>
+
+                <div class="system-card brutal-box" style="background: var(--white);">
+                    <span class="system-icon">💎</span>
+                    <h3 class="system-title font-display">Brand System + UI Kit</h3>
+                    <div class="system-price">₦60K - 85K</div>
+                    <ul class="system-features">
+                        <li>Full Brand Kit included</li>
+                        <li>Reusable UI components</li>
+                        <li>Buttons, forms, card layouts</li>
+                        <li>Dev-ready style guide</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <p style="margin-bottom: 20px; font-weight: 600;">Perfect for: SMEs, startups moving to website stage</p>
+                    <a href="#" class="brutal-btn" style="width: 100%; text-align: center;">ORDER UI KIT</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Systems -->
+    <section class="dev-systems">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title font-display">B. DEVELOPMENT SYSTEMS</h2>
+                <p class="section-subtitle">Apply your brand system to starter sites</p>
+            </div>
+
+            <div class="dev-grid">
+                <div class="dev-card brutal-box">
+                    <div class="tier-badge">TIER 1</div>
+                    <h3 class="system-title font-display" style="margin-top: 20px;">Starter Site Kit</h3>
+                    <div class="system-price">₦15K - 25K</div>
+                    <ul class="system-features">
+                        <li>1-page static site (home/info)</li>
+                        <li>Mobile-friendly design</li>
+                        <li>Contact button integration</li>
+                        <li>Brand colors/fonts applied</li>
+                    </ul>
+                    <p style="margin-bottom: 20px; font-weight: 600; color: #666;">Powered by: HTML + CSS</p>
+                    <a href="#" class="brutal-btn" style="width: 100%; text-align: center;">GET STARTER SITE</a>
+                </div>
+
+                <div class="dev-card brutal-box">
+                    <div class="tier-badge">TIER 2</div>
+                    <h3 class="system-title font-display" style="margin-top: 20px;">Growth Site Kit</h3>
+                    <div class="system-price">₦40K - 60K</div>
+                    <ul class="system-features">
+                        <li>3-5 pages included</li>
+                        <li>Basic animations</li>
+                        <li>Contact forms</li>
+                        <li>Fully responsive</li>
+                        <li>UI kit components applied</li>
+                    </ul>
+                    <p style="margin-bottom: 20px; font-weight: 600; color: #666;">Powered by: HTML + CSS + JS</p>
+                    <a href="#" class="brutal-btn" style="width: 100%; text-align: center;">GET GROWTH SITE</a>
+                </div>
+
+                <div class="dev-card brutal-box">
+                    <div class="tier-badge">TIER 3</div>
+                    <h3 class="system-title font-display" style="margin-top: 20px;">Pro Launch System</h3>
+                    <div class="system-price">₦80K - 120K</div>
+                    <ul class="system-features">
+                        <li>5+ pages with blog/news</li>
+                        <li>SEO-ready structure</li>
+                        <li>Analytics integration</li>
+                        <li>Branded UI throughout</li>
+                        <li>Performance optimized</li>
+                    </ul>
+                    <p style="margin-bottom: 20px; font-weight: 600; color: #666;">Powered by: HTML + CSS + JS + SEO</p>
+                    <a href="#" class="brutal-btn" style="width: 100%; text-align: center;">GET PRO LAUNCH</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgrade Packs -->
+    <section class="upgrade-packs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title font-display">C. UPGRADE PACKS</h2>
+                <p class="section-subtitle">Move customers up without rebuying</p>
+            </div>
+
+            <div class="upgrade-grid">
+                <div class="upgrade-card brutal-box">
+                    <div class="upgrade-arrow">→</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 10px;">LOGO KIT → BRAND KIT</h4>
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">Brand Boost Pack</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦20K</div>
+                    <p style="font-weight: 600;">Add typography, patterns, social kit</p>
+                    <a href="#" class="brutal-btn" style="margin-top: 20px;">UPGRADE NOW</a>
+                </div>
+
+                <div class="upgrade-card brutal-box">
+                    <div class="upgrade-arrow">→</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 10px;">BRAND KIT → BRAND + UI</h4>
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">UI Power Pack</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦25K - 30K</div>
+                    <p style="font-weight: 600;">Add full UI component library</p>
+                    <a href="#" class="brutal-btn" style="margin-top: 20px;">UPGRADE NOW</a>
+                </div>
+
+                <div class="upgrade-card brutal-box">
+                    <div class="upgrade-arrow">→</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 10px;">STARTER → GROWTH SITE</h4>
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">Site Growth Pack</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦25K - 35K</div>
+                    <p style="font-weight: 600;">Add 2-4 pages, responsive upgrade</p>
+                    <a href="#" class="brutal-btn" style="margin-top: 20px;">UPGRADE NOW</a>
+                </div>
+
+                <div class="upgrade-card brutal-box">
+                    <div class="upgrade-arrow">→</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 10px;">GROWTH → PRO SITE</h4>
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">Pro Expansion Pack</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦40K - 60K</div>
+                    <p style="font-weight: 600;">Add blog, SEO, analytics</p>
+                    <a href="#" class="brutal-btn" style="margin-top: 20px;">UPGRADE NOW</a>
+                </div>
+
+                <div class="upgrade-card brutal-box">
+                    <div class="upgrade-arrow">⚡</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 10px;">STARTER → PRO SITE</h4>
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">Pro Jump Pack</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦70K - 90K</div>
+                    <p style="font-weight: 600;">Growth + Pro upgrades combined</p>
+                    <a href="#" class="brutal-btn" style="margin-top: 20px;">JUMP TO PRO</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Packs -->
+    <section class="bonus-packs">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title font-display" style="color: var(--white);">D. BONUS ADD-ONS</h2>
+                <p class="section-subtitle" style="color: var(--accent);">High-margin extras for upselling</p>
+            </div>
+
+            <div class="bonus-grid">
+                <div class="bonus-card brutal-box">
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">Social System Pack</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦15K - 25K</div>
+                    <p style="font-weight: 600; margin-bottom: 20px;">Canva-ready post templates aligned with brand</p>
+                    <a href="#" class="brutal-btn" style="background: var(--black); color: var(--white);">ADD SOCIAL PACK</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Flow -->
+    <section class="process-flow">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title font-display">HOW IT WORKS</h2>
+                <p class="section-subtitle">From order to launch in 5 simple steps</p>
+            </div>
+
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 15px;">CHOOSE SYSTEM</h4>
+                    <p style="font-weight: 600;">Pick your core system (Logo, Brand, or UI Kit)</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 15px;">SHARE BRIEF</h4>
+                    <p style="font-weight: 600;">Tell us about your business via WhatsApp</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 15px;">WE CREATE</h4>
+                    <p style="font-weight: 600;">Our team builds your brand system</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 15px;">YOU REVIEW</h4>
+                    <p style="font-weight: 600;">Unlimited revisions until perfect</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <h4 class="font-display" style="font-size: 1.3rem; margin-bottom: 15px;">LAUNCH</h4>
+                    <p style="font-weight: 600;">Get all files + upgrade anytime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title font-display">CLIENT SUCCESS</h2>
+                <p class="section-subtitle">Real results from real businesses</p>
+            </div>
+
+            <div class="testimonial-card brutal-box">
+                <p class="testimonial-text">We started with just a Logo Kit and now we have a complete brand system and Pro Launch website. QuickBrand NG made scaling our visual identity seamless and affordable. Our revenue doubled in 6 months!</p>
+                <div class="testimonial-author">ADEBAYO TECH SOLUTIONS - FINTECH STARTUP</div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 60px;">
+                <div style="text-align: center; padding: 30px; background: var(--white); border: 4px solid var(--black); box-shadow: 6px 6px 0px var(--black);">
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--primary);">200+</div>
+                    <div style="font-weight: 600; text-transform: uppercase;">BRANDS LAUNCHED</div>
+                </div>
+                <div style="text-align: center; padding: 30px; background: var(--white); border: 4px solid var(--black); box-shadow: 6px 6px 0px var(--black);">
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--primary);">48HR</div>
+                    <div style="font-weight: 600; text-transform: uppercase;">AVERAGE DELIVERY</div>
+                </div>
+                <div style="text-align: center; padding: 30px; background: var(--white); border: 4px solid var(--black); box-shadow: 6px 6px 0px var(--black);">
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--primary);">100%</div>
+                    <div style="font-weight: 600; text-transform: uppercase;">SATISFACTION RATE</div>
+                </div>
+                <div style="text-align: center; padding: 30px; background: var(--white); border: 4px solid var(--black); box-shadow: 6px 6px 0px var(--black);">
+                    <div style="font-size: 3rem; font-weight: 900; color: var(--primary);">5★</div>
+                    <div style="font-weight: 600; text-transform: uppercase;">AVERAGE RATING</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="section-title font-display">START YOUR BRAND SYSTEM TODAY</h2>
+                <p style="font-size: 1.3rem; font-weight: 600; margin-bottom: 40px;">Build once. Scale forever. Launch in 48 hours.</p>
+
+                <div class="cta-grid">
+                    <div class="cta-card brutal-box">
+                        <h3 class="font-display" style="font-size: 1.5rem; margin-bottom: 15px;">START SMALL</h3>
+                        <div style="font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 15px;">₦15K - 25K</div>
+                        <p style="font-weight: 600; margin-bottom: 20px;">Logo Kit → Perfect for testing the waters</p>
+                        <a href="#" class="brutal-btn">ORDER LOGO KIT</a>
+                    </div>
+
+                    <div class="cta-card brutal-box" style="border-color: var(--primary); box-shadow: 8px 8px 0px var(--primary);">
+                        <div style="background: var(--primary); color: var(--white); padding: 10px; margin: -40px -40px 20px -40px; font-weight: 900; text-transform: uppercase; text-align: center;">MOST POPULAR</div>
+                        <h3 class="font-display" style="font-size: 1.5rem; margin-bottom: 15px;">GO COMPLETE</h3>
+                        <div style="font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 15px;">₦35K - 55K</div>
+                        <p style="font-weight: 600; margin-bottom: 20px;">Brand Kit → Full visual identity system</p>
+                        <a href="#" class="brutal-btn">ORDER BRAND KIT</a>
+                    </div>
+
+                    <div class="cta-card brutal-box">
+                        <h3 class="font-display" style="font-size: 1.5rem; margin-bottom: 15px;">GO PRO</h3>
+                        <div style="font-size: 2rem; font-weight: 900; color: var(--primary); margin-bottom: 15px;">₦60K - 85K</div>
+                        <p style="font-weight: 600; margin-bottom: 20px;">UI Kit → Ready for website development</p>
+                        <a href="#" class="brutal-btn">ORDER UI KIT</a>
+                    </div>
+                </div>
+
+                <div style="margin-top: 60px; padding: 40px; background: var(--black); color: var(--white); border: 4px solid var(--white); box-shadow: 8px 8px 0px var(--white);">
+                    <h3 class="font-display" style="color: var(--accent); font-size: 1.8rem; margin-bottom: 20px;">🔒 OUR GUARANTEE</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;">
+                        <div>
+                            <div style="font-weight: 900; margin-bottom: 5px;">⚡ FAST DELIVERY</div>
+                            <div>48hrs for Logo Kit</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 900; margin-bottom: 5px;">🔄 UNLIMITED REVISIONS</div>
+                            <div>Until you're 100% happy</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 900; margin-bottom: 5px;">💳 SECURE PAYMENTS</div>
+                            <div>Paystack protected</div>
+                        </div>
+                        <div>
+                            <div style="font-weight: 900; margin-bottom: 5px;">📱 24/7 SUPPORT</div>
+                            <div>WhatsApp always open</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/2348000000000?text=Hi! I want to start my brand system with QuickBrand NG. Can you help me choose the right package?" class="whatsapp-btn" id="whatsapp">
+        💬
+    </a>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#whatsapp') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Brutal button click effects
+        document.querySelectorAll('.brutal-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Add a "pressed" effect
+                this.style.transform = 'translate(6px, 6px)';
+                this.style.boxShadow = '0px 0px 0px var(--black)';
+                
+                setTimeout(() => {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                }, 150);
+
+                // For payment buttons
+                if (this.textContent.includes('ORDER')) {
+                    e.preventDefault();
+                    
+                    // Determine package and price
+                    let email = prompt("Enter your email address:");
+                    if (!email) return;
+                    
+                    let amount, packageName;
+                    
+                    if (this.textContent.includes('LOGO KIT')) {
+                        amount = 2500000; // ₦25,000 in kobo
+                        packageName = 'Logo Kit';
+                    } else if (this.textContent.includes('BRAND KIT')) {
+                        amount = 5500000; // ₦55,000 in kobo
+                        packageName = 'Brand Kit';
+                    } else if (this.textContent.includes('UI KIT') || this.textContent.includes('PREMIUM')) {
+                        amount = 8500000; // ₦85,000 in kobo
+                        packageName = 'Brand System + UI Kit';
+                    }
+                    
+                    // Initialize Paystack payment
+                    let handler = PaystackPop.setup({
+                        key: 'pk_live_065182820582c46a5f1bc5c5fee319550ec45140', // Replace with your public key
+                        email: email,
+                        amount: amount,
+                        currency: 'NGN',
+                        ref: 'QBN_' + Math.floor((Math.random() * 1000000000) + 1),
+                        metadata: {
+                            package: packageName,
+                            custom_fields: [
+                                {
+                                    display_name: "Package Type",
+                                    variable_name: "package_type",
+                                    value: packageName
+                                }
+                            ]
+                        },
+                        callback: function(response) {
+                            // Payment successful
+                            alert('Payment successful! Transaction ref: ' + response.reference);
+                            
+                            // Redirect to success page or send confirmation
+                            window.location.href = '#success';
+                            
+                            // You can also send the transaction reference to your backend
+                            console.log('Transaction Reference:', response.reference);
+                        },
+                        onClose: function() {
+                            alert('Payment window closed.');
+                        }
+                    });
+
+                    // Handle upgrade pack buttons
+                    if (this.textContent.includes('UPGRADE') || this.textContent.includes('ADD')) {
+                        e.preventDefault();
+                        
+                        let upgradeEmail = prompt("Enter your email address:");
+                        if (!upgradeEmail) return;
+                        
+                        let amount, packageName;
+                        
+                        if (this.textContent.includes('BRAND BOOST')) {
+                            amount = 2000000; // ₦20,000
+                            packageName = 'Brand Boost Pack';
+                        } else if (this.textContent.includes('UI POWER')) {
+                            amount = 3000000; // ₦30,000
+                            packageName = 'UI Power Pack';
+                        } else if (this.textContent.includes('GROWTH PACK')) {
+                            amount = 3500000; // ₦35,000
+                            packageName = 'Site Growth Pack';
+                        } else if (this.textContent.includes('IDENTITY BOOST')) {
+                            amount = 3500000; // ₦35,000
+                            packageName = 'Identity Boost Pack';
+                        }
+                        
+                        // Same Paystack setup as above but with upgrade amounts
+                        let handler = PaystackPop.setup({
+                            key: 'pk_live_065182820582c46a5f1bc5c5fee319550ec45140',
+                            email: upgradeEmail,
+                            amount: amount,
+                            currency: 'NGN',
+                            ref: 'QBN_UP_' + Math.floor((Math.random() * 1000000000) + 1),
+                            metadata: {
+                                package: packageName,
+                                type: 'upgrade'
+                            },
+                            callback: function(response) {
+                                alert('Upgrade payment successful! Ref: ' + response.reference);
+                                console.log('Upgrade Transaction:', response.reference);
+                            },
+                            onClose: function() {
+                                alert('Payment window closed.');
+                            }
+                        });
+                        
+                        handler.openIframe();
+                        return;
+                    }
+                    
+                    handler.openIframe();
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe system cards and other elements
+        document.querySelectorAll('.system-card, .dev-card, .upgrade-card, .bonus-card, .flow-step').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(card);
+        });
+
+        // Add brutal hover effects to cards
+        document.querySelectorAll('.system-card, .dev-card, .upgrade-card, .bonus-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translate(-4px, -4px)';
+                this.style.boxShadow = '12px 12px 0px var(--black)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+                this.style.boxShadow = '';
+            });
+        });
+
+        // Load the actual logo image
+
+        const heroTitle = document.querySelector('.glitch');
+        setInterval(() => {
+            if (Math.random() > 0.95) {
+                heroTitle.style.animation = 'none';
+                setTimeout(() => {
+                    heroTitle.style.animation = 'glitch 2s infinite';
+                }, 50);
+            }
+        }, 1000);
+
+        // Track conversions
+        function trackConversion(action, value) {
+            console.log('Conversion tracked:', action, value);
+            // Here you'd integrate with your analytics
+        }
+
+        // Add conversion tracking to all CTAs
+        document.querySelectorAll('.brutal-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const action = this.textContent.trim();
+                trackConversion('cta_click', action);
+            });
+        });
+    </script>
+</body>
+</html>
+                <div class="bonus-card brutal-box">
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">Identity Boost</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦20K - 35K</div>
+                    <p style="font-weight: 600; margin-bottom: 20px;">Brand photography moodboard + stock pack</p>
+                    <a href="#" class="brutal-btn" style="background: var(--black); color: var(--white);">ADD IDENTITY BOOST</a>
+                </div>
+
+                <div class="bonus-card brutal-box">
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">Launch Pack</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦10K - 20K</div>
+                    <p style="font-weight: 600; margin-bottom: 20px;">Launch graphics + WhatsApp flier + IG templates</p>
+                    <a href="#" class="brutal-btn" style="background: var(--black); color: var(--white);">ADD LAUNCH PACK</a>
+                </div>
+
+                <div class="bonus-card brutal-box">
+                    <h3 class="system-title font-display" style="font-size: 1.5rem;">SEO & Traffic Boost</h3>
+                    <div class="system-price" style="font-size: 1.3rem;">₦10K - 15K</div>
+                    <p style="font-weight: 600; margin-bottom: 20px;">Keyword setup + Google submission</p>
+                    <a href="#" class="brutal-btn" style="background: var(--black); color: var(--white);">ADD SEO BOOST</a>
+                </div>
+
+                <div class="bonus-card brutal-
