@@ -451,7 +451,7 @@
             box-shadow: 3px 3px 0px var(--black);
         }
 
-        /* Popup Modal */
+        /* UPDATED POPUP STYLES - ON BRAND & ENGAGING */
         .popup-overlay {
             display: none;
             position: fixed;
@@ -459,34 +459,204 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.95);
             z-index: 10000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .popup-content {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(1);
             background: var(--white);
-            padding: 40px;
-            max-width: 500px;
+            max-width: 600px;
             width: 90%;
             text-align: center;
-            border: 4px solid var(--black);
-            box-shadow: 12px 12px 0px var(--primary);
+            border: 6px solid var(--black);
+            box-shadow: 15px 15px 0px var(--primary);
+            animation: popIn 0.4s ease-out;
+            overflow: hidden;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .popup-header {
+            background: var(--primary);
+            color: var(--black);
+            padding: 25px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .popup-header::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent);
+            border: 3px solid var(--black);
+            transform: rotate(45deg);
+        }
+
+        .popup-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .popup-subtitle {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
         }
 
         .popup-close {
             position: absolute;
-            top: 10px;
-            right: 15px;
+            top: 15px;
+            right: 20px;
             font-size: 30px;
             cursor: pointer;
             font-weight: 900;
+            color: var(--black);
+            z-index: 3;
+            transition: all 0.2s ease;
         }
 
-        /* Responsive */
+        .popup-close:hover {
+            transform: rotate(90deg);
+            color: var(--white);
+        }
+
+        .popup-body {
+            padding: 40px 30px;
+        }
+
+        .popup-urgency {
+            background: var(--black);
+            color: var(--primary);
+            padding: 15px;
+            margin: -40px -30px 30px -30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .popup-message {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: var(--black);
+            line-height: 1.4;
+        }
+
+        .popup-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .popup-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: 3px solid var(--black);
+            box-shadow: 4px 4px 0px var(--black);
+            padding: 18px 25px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        .popup-btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--black);
+        }
+
+        .popup-btn-secondary {
+            background: var(--accent);
+            color: var(--black);
+        }
+
+        .popup-btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+        }
+
+        .popup-guarantee {
+            background: var(--secondary);
+            padding: 20px;
+            margin: 25px -30px -40px -30px;
+            border-top: 3px solid var(--black);
+            font-weight: 600;
+            color: var(--black);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        /* Email Input Popup */
+        .email-popup {
+            max-width: 500px;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 18px 20px;
+            border: 4px solid var(--black);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background: var(--background);
+            color: var(--black);
+            text-align: center;
+        }
+
+        .email-input:focus {
+            outline: none;
+            background: var(--white);
+            box-shadow: 0 0 0 3px var(--accent);
+        }
+
+        .email-input::placeholder {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .systems-grid,
             .dev-grid {
@@ -507,7 +677,29 @@
             }
 
             .popup-content {
+                padding: 0;
+                max-width: 95%;
+            }
+
+            .popup-body {
                 padding: 30px 20px;
+            }
+
+            .popup-title {
+                font-size: 1.8rem;
+            }
+
+            .popup-message {
+                font-size: 1.1rem;
+            }
+
+            .popup-buttons {
+                gap: 12px;
+            }
+
+            .popup-btn {
+                padding: 16px 20px;
+                font-size: 14px;
             }
         }
 
@@ -793,21 +985,108 @@
     <!-- WhatsApp Button -->
     <a href="#" class="whatsapp-btn whatsapp-inquiry">💬</a>
 
-    <!-- Popup Modal -->
+    <!-- UPDATED ON-BRAND POPUPS -->
+    
+    <!-- Main Popup Modal -->
     <div id="popup" class="popup-overlay">
         <div class="popup-content">
-            <span class="popup-close">&times;</span>
-            <div style="background: var(--primary); color: var(--white); padding: 15px; margin: -40px -40px 30px -40px; font-weight: 900; text-transform: uppercase;">
-                🚀 QUICKBRAND NG
+            <div class="popup-header">
+                <div class="popup-title font-display">DON'T LEAVE!</div>
+                <div class="popup-subtitle">Your Competition Is Getting Ahead</div>
+                <span class="popup-close">&times;</span>
             </div>
-            <h3 style="margin-bottom: 20px; font-weight: 900; color: var(--black);">READY TO START MAKING MORE MONEY?</h3>
-            <p style="margin-bottom: 30px; font-weight: 600;">Choose your package and let's transform your business into a profit machine!</p>
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center;">
-                <button class="brutal-btn paystack-btn" data-package="starter" style="font-size: 14px; padding: 15px 20px;">STARTER - ₦20K</button>
-                <button class="brutal-btn paystack-btn" data-package="growth" style="font-size: 14px; padding: 15px 20px;">GROWTH - ₦50K</button>
+            
+            <div class="popup-body">
+                <div class="popup-urgency">
+                    ⚡ LAST CHANCE - ONLY 5 SPOTS LEFT THIS MONTH ⚡
+                </div>
+                
+                <div class="popup-message">
+                    While you're thinking, your competitors are stealing YOUR customers with better branding. Don't let another sale slip away!
+                </div>
+                
+                <div class="popup-buttons">
+                    <button class="popup-btn paystack-btn" data-package="starter">
+                        🚀 GET ONLINE NOW - ₦20K
+                    </button>
+                    <button class="popup-btn paystack-btn" data-package="growth">
+                        💎 DOMINATE MY MARKET - ₦50K
+                    </button>
+                    <button class="popup-btn popup-btn-whatsapp whatsapp-inquiry">
+                        💬 I NEED HELP CHOOSING
+                    </button>
+                </div>
+                
+                <div class="popup-guarantee">
+                    ⚡ 48-Hour Delivery • 💰 Money Back Guarantee • 🎨 Unlimited Revisions
+                </div>
             </div>
-            <div style="margin-top: 20px;">
-                <button class="brutal-btn brutal-btn-secondary whatsapp-inquiry" style="font-size: 14px; padding: 15px 20px;">NEED HELP CHOOSING?</button>
+        </div>
+    </div>
+
+    <!-- Email Collection Popup -->
+    <div id="emailPopup" class="popup-overlay">
+        <div class="popup-content email-popup">
+            <div class="popup-header">
+                <div class="popup-title font-display">ALMOST THERE!</div>
+                <div class="popup-subtitle">Just Need Your Email</div>
+                <span class="popup-close" onclick="closeEmailPopup()">&times;</span>
+            </div>
+            
+            <div class="popup-body">
+                <div class="popup-urgency">
+                    🔐 SECURE PAYMENT • ⚡ START IN 30 MINUTES
+                </div>
+                
+                <div class="popup-message" id="emailMessage">
+                    Enter your email to continue with your <strong id="packageName">package</strong> (₦<span id="packagePrice">0</span>)
+                </div>
+                
+                <input type="email" id="customerEmail" class="email-input" placeholder="your-email@example.com" required>
+                
+                <div class="popup-buttons">
+                    <button class="popup-btn" onclick="processPayment()">
+                        💳 PAY NOW & START PROJECT
+                    </button>
+                    <button class="popup-btn popup-btn-secondary" onclick="closeEmailPopup()">
+                        ← BACK TO PACKAGES
+                    </button>
+                </div>
+                
+                <div class="popup-guarantee">
+                    🔒 Your email is safe with us • No spam, just project updates
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Popup -->
+    <div id="successPopup" class="popup-overlay">
+        <div class="popup-content">
+            <div class="popup-header" style="background: #25D366;">
+                <div class="popup-title font-display">PAYMENT SUCCESS! 🎉</div>
+                <div class="popup-subtitle" style="color: white;">Your Project Starts Now</div>
+            </div>
+            
+            <div class="popup-body">
+                <div class="popup-message">
+                    <strong>Congratulations!</strong> Your payment was successful. We'll contact you on WhatsApp within 30 minutes to start your project.
+                    <br><br>
+                    <strong>Reference:</strong> <span id="paymentRef"></span>
+                </div>
+                
+                <div class="popup-buttons">
+                    <button class="popup-btn popup-btn-whatsapp" onclick="openSuccessWhatsApp()">
+                        💬 CHAT WITH US NOW
+                    </button>
+                    <button class="popup-btn popup-btn-secondary" onclick="closeSuccessPopup()">
+                        CLOSE
+                    </button>
+                </div>
+                
+                <div class="popup-guarantee">
+                    📧 Check your email for project details • 📱 Save our WhatsApp: +234 707 437 0114
+                </div>
             </div>
         </div>
     </div>
@@ -817,6 +1096,7 @@
         <!-- Animated Background Pattern -->
         <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05; background: url('data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 50 50&quot;><rect x=&quot;0&quot; y=&quot;0&quot; width=&quot;25&quot; height=&quot;25&quot; fill=&quot;white&quot;/><rect x=&quot;25&quot; y=&quot;25&quot; width=&quot;25&quot; height=&quot;25&quot; fill=&quot;white&quot;/></svg>') repeat;"></div>
         
+        <div class="container" style="padding: 60px 20px; position: relative; z-index: 2;">
             <!-- Trust Badges Section -->
             <div style="border-top: 3px solid var(--primary); border-bottom: 3px solid var(--primary); padding: 30px 0; margin: 40px 0;">
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center;">
@@ -866,49 +1146,45 @@
     
     <script>
         // Paystack Configuration - REPLACE WITH YOUR ACTUAL PAYSTACK PUBLIC KEY
-        const PAYSTACK_PUBLIC_KEY = 'pk_live_065182820582c46a5f1bc5c5fee319550ec45140'; // Replace with your actual key
+        const PAYSTACK_PUBLIC_KEY = 'pk_live_065182820582c46a5f1bc5c5fee319550ec45140';
         
-        // Package configurations - REPLACE WITH YOUR ACTUAL PAYSTACK PRODUCT CODES
+        // Package configurations
         const packages = {
             logo: {
                 name: 'Logo That Sells',
                 price: 15000,
-                email: 'customer@example.com', // You'll collect this in the intake form
-                product_code: '2050358' // Replace with your Paystack product code
+                product_code: '2050358'
             },
             brand: {
                 name: 'Complete Brand System', 
                 price: 35000,
-                email: 'customer@example.com',
-                product_code: '2051348' // Replace with your Paystack product code
+                product_code: '2051348'
             },
             system: {
                 name: 'Website-Ready System',
                 price: 60000, 
-                email: 'customer@example.com',
-                product_code: '2050075' // Replace with your Paystack product code
+                product_code: '2050075'
             },
             starter: {
                 name: 'Get Online Fast Website',
                 price: 20000,
-                email: 'customer@example.com', 
-                product_code: '2050069' // Replace with your Paystack product code
+                product_code: '2050069'
             },
             growth: {
                 name: 'Business Dominator Website',
                 price: 50000,
-                email: 'customer@example.com',
-                product_code: '2051350' // Replace with your Paystack product code
+                product_code: '2051350'
             },
             pro: {
                 name: 'Market Leader Website',
                 price: 100000,
-                email: 'customer@example.com',
-                product_code: '2051356' // Replace with your Paystack product code
+                product_code: '2051356'
             }
         };
 
-        // WhatsApp inquiry function
+        let currentPackage = null;
+
+        // WhatsApp Functions
         function openWhatsAppInquiry(context = 'general') {
             const phoneNumber = '2347074370114';
             let message = '';
@@ -931,21 +1207,62 @@
             window.open(whatsappUrl, '_blank');
         }
 
-        // Paystack payment function
-        function openPaystack(packageType) {
+        function openSuccessWhatsApp() {
+            const paymentRef = document.getElementById('paymentRef').textContent;
+            const packageName = currentPackage ? packages[currentPackage].name : 'package';
+            const message = `Hi QuickBrand NG! I just completed payment for ${packageName} (Reference: ${paymentRef}). Ready to start my project!`;
+            const whatsappUrl = `https://wa.me/2347074370114?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Popup Functions
+        function showMainPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closeMainPopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function showEmailPopup(packageType) {
+            currentPackage = packageType;
             const selectedPackage = packages[packageType];
             
+            document.getElementById('packageName').textContent = selectedPackage.name;
+            document.getElementById('packagePrice').textContent = selectedPackage.price.toLocaleString();
+            document.getElementById('emailPopup').style.display = 'block';
+        }
+
+        function closeEmailPopup() {
+            document.getElementById('emailPopup').style.display = 'none';
+            currentPackage = null;
+        }
+
+        function showSuccessPopup(reference) {
+            document.getElementById('paymentRef').textContent = reference;
+            document.getElementById('successPopup').style.display = 'block';
+        }
+
+        function closeSuccessPopup() {
+            document.getElementById('successPopup').style.display = 'none';
+        }
+
+        // Payment Functions
+        function openPaystack(packageType) {
+            const selectedPackage = packages[packageType];
             if (!selectedPackage) {
                 alert('Package not found. Please contact us via WhatsApp.');
                 openWhatsAppInquiry('general');
                 return;
             }
+            showEmailPopup(packageType);
+        }
 
-            // Show popup asking for email before payment
-            const email = prompt(`🚀 QUICKBRAND NG - Ready to start your ${selectedPackage.name}?\n\nEnter your email address to continue with payment (₦${selectedPackage.price.toLocaleString()}):`);
+        function processPayment() {
+            const email = document.getElementById('customerEmail').value.trim();
             
             if (!email) {
-                showQuickBrandPopup();
+                alert('Please enter your email address.');
                 return;
             }
             
@@ -954,53 +1271,45 @@
                 return;
             }
 
+            if (!currentPackage) {
+                alert('Please select a package.');
+                return;
+            }
+
+            const selectedPackage = packages[currentPackage];
+            
+            // Close email popup
+            closeEmailPopup();
+
             // Initialize Paystack payment
             const handler = PaystackPop.setup({
                 key: PAYSTACK_PUBLIC_KEY,
                 email: email,
-                amount: selectedPackage.price * 100, // Convert to kobo
+                amount: selectedPackage.price * 100,
                 currency: 'NGN',
                 ref: 'QB_' + Math.floor(Math.random() * 1000000000),
                 metadata: {
-                    package_type: packageType,
+                    package_type: currentPackage,
                     package_name: selectedPackage.name,
                     customer_source: 'website'
                 },
                 callback: function(response) {
-                    // Payment successful
-                    alert(`🎉 Payment successful! Reference: ${response.reference}\n\nQuickBrand NG will contact you within 30 minutes to start your project. Check your email for next steps!`);
-                    
-                    // Redirect to WhatsApp with success message
-                    const successMessage = `Hi QuickBrand NG! I just completed payment for ${selectedPackage.name} (Reference: ${response.reference}). Ready to start my project!`;
-                    const whatsappUrl = `https://wa.me/2347074370114?text=${encodeURIComponent(successMessage)}`;
-                    window.open(whatsappUrl, '_blank');
+                    showSuccessPopup(response.reference);
                 },
                 onClose: function() {
-                    // Payment cancelled
-                    showQuickBrandPopup();
+                    showMainPopup();
                 }
             });
             
             handler.openIframe();
         }
 
-        // Email validation
         function isValidEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
 
-        // Show QuickBrand popup
-        function showQuickBrandPopup() {
-            document.getElementById('popup').style.display = 'block';
-        }
-
-        // Close popup
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-
-        // Event listeners
+        // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
             // Paystack buttons
             document.querySelectorAll('.paystack-btn').forEach(button => {
@@ -1020,25 +1329,42 @@
                 });
             });
 
-            // Popup close button
-            document.querySelector('.popup-close').addEventListener('click', closePopup);
+            // Popup close buttons
+            document.querySelectorAll('.popup-close').forEach(button => {
+                button.addEventListener('click', function() {
+                    closeMainPopup();
+                    closeEmailPopup();
+                    closeSuccessPopup();
+                });
+            });
             
-            // Close popup when clicking overlay
-            document.getElementById('popup').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closePopup();
+            // Close popups when clicking overlay
+            document.querySelectorAll('.popup-overlay').forEach(overlay => {
+                overlay.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeMainPopup();
+                        closeEmailPopup();
+                        closeSuccessPopup();
+                    }
+                });
+            });
+
+            // Email input enter key
+            document.getElementById('customerEmail').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    processPayment();
                 }
             });
 
             // Show popup after 30 seconds
-            setTimeout(showQuickBrandPopup, 30000);
+            setTimeout(showMainPopup, 30000);
 
             // Show popup when user tries to leave page
             let hasShownExitPopup = false;
-            document.addEventListener('mouseleave', function() {
+            document.addEventListener('mouseleave', function(event) {
                 if (!hasShownExitPopup && event.clientY <= 0) {
                     hasShownExitPopup = true;
-                    showQuickBrandPopup();
+                    showMainPopup();
                 }
             });
         });
@@ -1058,5 +1384,3 @@
     </script>
 </body>
 </html>
-
-
